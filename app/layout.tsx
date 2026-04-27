@@ -29,6 +29,9 @@ export const metadata: Metadata = {
     "宮城県全域対応のガラスフィルム施工専門店。UVカット・遮熱・プライバシー・防犯フィルムなど幅広いフィルム施工に対応。無料見積り受付中。",
   keywords:
     "ガラスフィルム,宮城県,仙台,多賀城,UVカット,遮熱フィルム,プライバシーフィルム,防犯フィルム",
+  verification: {
+    google: "i4aRwI0WZYrE3bnqxjTpLxhZ-xK_86nu2WPq4jQvx80",
+  },
 };
 
 export default function RootLayout({
