@@ -23,10 +23,12 @@ export default function ContactForm() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    // TODO: reCAPTCHA検証を追加する
-    // TODO: メール送信処理を実装する（例: SendGrid / Resend API）
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    void data;
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) return;
     setSubmitted(true);
     reset();
   };
@@ -34,10 +36,12 @@ export default function ContactForm() {
   if (submitted) {
     return (
       <div className="text-center py-12">
+        <div className="text-5xl mb-4">✅</div>
         <h4 className="text-2xl font-bold text-navy mb-3">
-          お問い合わせありがとうございます
+          送信完了しました
         </h4>
         <p className="text-gray-600 leading-relaxed">
+          お問い合わせありがとうございます。<br />
           内容を確認後、担当者よりご連絡いたします。<br />
           2営業日以内にご返信いたします。
         </p>

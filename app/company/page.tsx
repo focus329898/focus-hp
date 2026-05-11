@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const companyInfo = [
   { label: "会社名", value: "合同会社focus" },
-  { label: "代表者", value: "開示請求があった際にお申し出ください" },
+  { label: "代表者", value: "尾形　拓哉" },
   { label: "所在地", value: "〒985-0831 宮城県多賀城市浮島字高原176-1 アイリス高原B202" },
   { label: "電話番号", value: "022-355-7620" },
   { label: "メールアドレス", value: "focusogata@gmail.com" },

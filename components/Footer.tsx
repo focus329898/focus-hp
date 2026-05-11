@@ -20,7 +20,7 @@ export default function Footer() {
               className="text-2xl font-bold text-gold mb-4"
               style={{ fontFamily: "var(--font-noto-serif)" }}
             >
-              合同会社focus
+              仙台ガラスフィルム
             </p>
             <address className="not-italic text-gray-300 text-base space-y-1">
               <p>〒985-0831</p>
@@ -78,7 +78,7 @@ export default function Footer() {
 
       <div className="border-t border-navy-light">
         <div className="max-w-7xl mx-auto px-4 py-6 text-center text-gray-400 text-sm">
-          &copy; {new Date().getFullYear()} 合同会社focus All Rights Reserved.
+          &copy; {new Date().getFullYear()} 仙台ガラスフィルム All Rights Reserved.
         </div>
       </div>
     </footer>

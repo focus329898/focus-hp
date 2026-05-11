@@ -1,15 +1,20 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy via-navy-light to-black">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold rounded-full filter blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gold-light rounded-full filter blur-3xl" />
-      </div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <Image
+        src="/images/hero.jpg"
+        alt="ガラスフィルム施工の様子"
+        fill
+        priority
+        className="object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-navy/70" />
 
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto pt-20">
         <motion.p
@@ -29,7 +34,7 @@ export default function HeroSection() {
           style={{ fontFamily: "var(--font-noto-serif)" }}
         >
           宮城県でガラスフィルム施工なら<br />
-          <span className="text-gold">focusにお任せください</span>
+          <span className="text-gold">仙台ガラスフィルムにお任せください</span>
         </motion.h1>
 
         <motion.p
@@ -66,27 +71,22 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-wrap justify-center gap-6 mt-14 text-sm text-gray-300"
+          className="grid grid-cols-2 gap-3 mt-14 max-w-md mx-auto w-full"
         >
-          {["現地調査無料", "見積もり無料", "宮城県全域対応", "施工保証あり"].map((tag) => (
-            <span key={tag} className="flex items-center gap-1">
-              <span className="text-gold">✓</span> {tag}
-            </span>
+          {[
+            "現地調査・完全無料",
+            "お見積り・完全無料",
+            "宮城県全域に対応",
+            "施工後の保証あり",
+          ].map((tag) => (
+            <div key={tag} className="flex items-center justify-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 text-sm text-white whitespace-nowrap">
+              <span className="text-gold font-bold">✓</span>
+              <span>{tag}</span>
+            </div>
           ))}
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-1 text-gray-400">
-          <span className="text-xs tracking-widest">SCROLL</span>
-          <div className="w-px h-12 bg-gradient-to-b from-gray-400 to-transparent" />
-        </div>
-      </motion.div>
     </section>
   );
 }

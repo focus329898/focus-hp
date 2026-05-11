@@ -33,7 +33,7 @@ export default function FaqPage() {
               className="text-2xl font-bold mb-3"
               style={{ fontFamily: "var(--font-noto-serif)" }}
             >
-              その他ご不明な点はお気軽に
+              ご不明な点は<br />ご相談ください
             </h3>
             <p className="text-gray-300 mb-6">
               上記以外のご質問も、お電話またはメールでお気軽にどうぞ。

@@ -32,22 +32,20 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16 md:h-20">
         <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-          <div className="w-10 h-10 md:w-14 md:h-14 bg-navy rounded flex items-center justify-center">
-            <Image
-              src="/images/placeholder.jpg"
-              alt="合同会社focusロゴ"
-              width={56}
-              height={56}
-              className="w-full h-full object-cover rounded"
-            />
-          </div>
+          <Image
+            src="/images/logo.png"
+            alt="仙台ガラスフィルムロゴ"
+            width={56}
+            height={56}
+            className="w-10 h-10 md:w-14 md:h-14 object-contain"
+          />
           <span
             className={`font-bold text-lg md:text-xl tracking-wider transition-colors ${
               scrolled ? "text-navy" : "text-white"
             }`}
             style={{ fontFamily: "var(--font-noto-serif)" }}
           >
-            合同会社focus
+            仙台ガラスフィルム
           </span>
         </Link>
 

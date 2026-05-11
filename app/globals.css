@@ -24,3 +24,136 @@ h5,
 h6 {
   font-family: "Noto Serif JP", serif;
 }
+
+/* ==================
+   記事コンテンツ
+================== */
+.article-content {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #2d2d2d;
+}
+
+.article-content p {
+  margin-bottom: 1.6em;
+}
+
+.article-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f1e3d;
+  margin-top: 2.5em;
+  margin-bottom: 1em;
+  padding: 0.6em 1em;
+  background: linear-gradient(90deg, #f0f4ff 0%, #f8f7f4 100%);
+  border-left: 5px solid #c9a84c;
+  border-radius: 0 8px 8px 0;
+  line-height: 1.5;
+}
+
+.article-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f1e3d;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  padding-bottom: 0.4em;
+  border-bottom: 2px solid #e8c97a;
+  line-height: 1.5;
+}
+
+.article-content h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a3060;
+  margin-top: 1.5em;
+  margin-bottom: 0.6em;
+}
+
+.article-content ul {
+  margin-bottom: 1.6em;
+  padding-left: 0;
+  list-style: none;
+}
+
+.article-content ul li {
+  position: relative;
+  padding-left: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+.article-content ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #c9a84c;
+  font-weight: 700;
+}
+
+.article-content ol {
+  margin-bottom: 1.6em;
+  padding-left: 1.8em;
+}
+
+.article-content ol li {
+  margin-bottom: 0.6em;
+}
+
+.article-content strong {
+  color: #0f1e3d;
+  font-weight: 700;
+}
+
+.article-content em {
+  color: #555;
+}
+
+.article-content a {
+  color: #c9a84c;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.article-content a:hover {
+  color: #1a3060;
+}
+
+.article-content blockquote {
+  margin: 1.6em 0;
+  padding: 1em 1.5em;
+  background: #f8f7f4;
+  border-left: 4px solid #c9a84c;
+  border-radius: 0 8px 8px 0;
+  color: #555;
+  font-style: italic;
+}
+
+.article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.6em;
+  font-size: 0.95rem;
+}
+
+.article-content th {
+  background: #0f1e3d;
+  color: white;
+  padding: 0.6em 1em;
+  text-align: left;
+  font-weight: 700;
+}
+
+.article-content td {
+  padding: 0.6em 1em;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.article-content tr:nth-child(even) td {
+  background: #f8f7f4;
+}
+
+.article-content hr {
+  border: none;
+  border-top: 2px solid #e8c97a;
+  margin: 2.5em 0;
+}

@@ -14,8 +14,15 @@ export type PostMeta = {
   excerpt: string;
 };
 
+export type Heading = {
+  id: string;
+  text: string;
+  level: number;
+};
+
 export type Post = PostMeta & {
   content: string;
+  headings: Heading[];
 };
 
 export function getAllPosts(): PostMeta[] {
@@ -46,8 +53,27 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  // H2・H3見出しを抽出してIDを付与
+  const headings: Heading[] = [];
+  let sectionIndex = 0;
+  const headingRegex = /^(#{2,3}) (.+)$/gm;
+  let match;
+  while ((match = headingRegex.exec(content)) !== null) {
+    const level = match[1].length;
+    const text = match[2].trim();
+    const id = `section-${sectionIndex++}`;
+    headings.push({ id, text, level });
+  }
+
   const processedContent = await remark().use(html).process(content);
-  const contentHtml = processedContent.toString();
+  let contentHtml = processedContent.toString();
+
+  // H2・H3にIDを付与
+  let idx = 0;
+  contentHtml = contentHtml.replace(/<h([23])>/g, (_, level) => {
+    const id = `section-${idx++}`;
+    return `<h${level} id="${id}">`;
+  });
 
   return {
     slug,
@@ -56,6 +82,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
     category: data.category as string,
     excerpt: data.excerpt as string,
     content: contentHtml,
+    headings,
   };
 }
 

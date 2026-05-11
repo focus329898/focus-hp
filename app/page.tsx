@@ -8,7 +8,7 @@ import FlowSteps from "@/components/FlowSteps";
 import FaqPreview from "@/components/FaqPreview";
 
 export const metadata: Metadata = {
-  title: "合同会社focus｜宮城県のガラスフィルム施工専門店",
+  title: "仙台ガラスフィルム｜宮城県のガラスフィルム施工専門店",
   description:
     "宮城県全域対応のガラスフィルム施工専門店。UVカット・遮熱・プライバシー・防犯フィルムなど幅広いフィルム施工に対応。無料見積り受付中。",
 };
@@ -22,15 +22,41 @@ const news = [
 const reasons = [
   {
     title: "卓越した技術力",
-    text: "長年の経験と豊富な施工実績。気泡なし・ムラなしの仕上がりをお約束します。難しい施工箇所にも対応可能です。",
+    text: "長年の経験と豊富な施工実績。気泡なし・ムラなしの仕上がりをお約束します。難しい箇所への施工も得意としています。",
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
+        <rect x="8" y="8" width="48" height="48" rx="4" stroke="#c9a84c" strokeWidth="2.5" fill="none"/>
+        <path d="M16 20 L48 20" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M16 28 Q32 16 48 28" stroke="#0f1e3d" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+        <path d="M16 28 L48 28 L48 48 L16 48 Z" fill="#0f1e3d" fillOpacity="0.08"/>
+        <circle cx="44" cy="44" r="10" fill="#0f1e3d" stroke="#c9a84c" strokeWidth="2"/>
+        <path d="M40 44 L43 47 L48 41" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
   },
   {
     title: "安心の施工保証",
     text: "施工後のフィルムの剥がれや気泡が生じた場合は、無償で対応いたします。アフターフォローも万全です。",
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
+        <path d="M32 8 L52 16 L52 32 C52 43 43 52 32 56 C21 52 12 43 12 32 L12 16 Z" stroke="#c9a84c" strokeWidth="2.5" fill="#0f1e3d" fillOpacity="0.08"/>
+        <path d="M32 8 L52 16 L52 32 C52 43 43 52 32 56 C21 52 12 43 12 32 L12 16 Z" stroke="#c9a84c" strokeWidth="2.5" fill="none"/>
+        <path d="M22 32 L28 38 L42 26" stroke="#c9a84c" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
   },
   {
     title: "丁寧なご対応",
     text: "お客様のご要望をしっかり伺い、最適なフィルムをご提案します。現地調査・お見積りは無料です。",
+    icon: (
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-16 h-16">
+        <circle cx="24" cy="20" r="8" stroke="#c9a84c" strokeWidth="2.5" fill="none"/>
+        <path d="M10 48 C10 38 38 38 38 48" stroke="#c9a84c" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+        <circle cx="44" cy="26" r="6" stroke="#0f1e3d" strokeWidth="2" fill="#c9a84c" fillOpacity="0.15"/>
+        <path d="M41 26 L43 28 L47 23" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M44 32 L44 48" stroke="#c9a84c" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 3"/>
+      </svg>
+    ),
   },
 ];
 
@@ -53,10 +79,10 @@ const testimonials = [
 ];
 
 const works = [
-  { area: "仙台市・戸建て", description: "遮熱フィルム施工 / リビング大窓" },
-  { area: "多賀城市・マンション", description: "プライバシーフィルム施工 / 全室" },
-  { area: "塩釜市・店舗", description: "デザインフィルム施工 / ショーウィンドウ" },
-  { area: "名取市・オフィス", description: "UVカット＋飛散防止施工" },
+  { area: "仙台市・戸建て", description: "遮熱フィルム施工 / リビング大窓", img: "/images/work-sendai-house.jpg" },
+  { area: "多賀城市・マンション", description: "プライバシーフィルム施工 / 全室", img: "/images/work-tagajo-mansion.jpg" },
+  { area: "塩竈市・店舗", description: "デザインフィルム施工 / ショーウィンドウ", img: "/images/work-shiogama-store.jpg" },
+  { area: "名取市・オフィス", description: "UVカット＋飛散防止施工", img: "/images/work-natori-office.jpg" },
 ];
 
 export default async function HomePage() {
@@ -66,7 +92,7 @@ export default async function HomePage() {
     <>
       <HeroSection />
 
-      <section className="py-12 bg-cream">
+<section className="py-12 bg-cream">
         <div className="max-w-5xl mx-auto px-4">
           <h2
             className="text-2xl font-bold text-navy mb-6 pb-3 border-b-2 border-gold"
@@ -102,7 +128,7 @@ export default async function HomePage() {
                 key={i}
                 className="text-center p-8 bg-cream rounded-2xl shadow-sm hover:shadow-md transition-shadow"
               >
-                <span className="block w-8 h-px bg-gold mx-auto mb-4"></span>
+                <div className="flex justify-center mb-5">{r.icon}</div>
                 <h3 className="text-xl font-bold text-navy mb-3">{r.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{r.text}</p>
               </div>
@@ -162,7 +188,7 @@ export default async function HomePage() {
               <div key={i} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="relative h-48 bg-gray-200">
                   <Image
-                    src="/images/placeholder.jpg"
+                    src={w.img}
                     alt={`施工事例 ${w.area}`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -242,15 +268,6 @@ export default async function HomePage() {
             {posts.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
                 <div className="bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                  <div className="relative h-44 bg-gray-200">
-                    <Image
-                      src="/images/placeholder.jpg"
-                      alt={post.title}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
                   <div className="p-5">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-xs bg-navy text-white px-2 py-1 rounded">

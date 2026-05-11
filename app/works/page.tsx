@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 };
 
 const works = [
-  { area: "仙台市・戸建て", type: "遮熱フィルム", desc: "南向きリビングの大窓2枚に遮熱フィルムを施工。夏の暑さが大幅に軽減されました。" },
-  { area: "多賀城市・マンション", type: "プライバシーフィルム", desc: "全室の窓にプライバシーフィルムを施工。カーテンなしで明るい生活が可能になりました。" },
-  { area: "塩釜市・店舗", type: "デザインフィルム", desc: "ショーウィンドウにデザインフィルムを施工。店舗の雰囲気が大きく変わりました。" },
-  { area: "名取市・オフィス", type: "UVカット＋飛散防止", desc: "オフィス全窓にUVカット＋飛散防止フィルムを施工。スタッフのUV対策にもなっています。" },
-  { area: "仙台市・マンション", type: "断熱フィルム", desc: "北向き寝室の窓に断熱フィルムを施工。冬の結露が大幅に減りました。" },
-  { area: "多賀城市・戸建て", type: "防犯フィルム", desc: "1階全窓に防犯フィルムを施工。防犯意識の高まりとともに安心感が増しました。" },
+  { area: "仙台市・戸建て", type: "遮熱フィルム", desc: "南向きリビングの大窓2枚に遮熱フィルムを施工。夏の暑さが大幅に軽減されました。", img: "/images/work-sendai-house.jpg" },
+  { area: "多賀城市・マンション", type: "プライバシーフィルム", desc: "全室の窓にプライバシーフィルムを施工。カーテンなしで明るい生活が可能になりました。", img: "/images/work-tagajo-mansion.jpg" },
+  { area: "塩竈市・店舗", type: "デザインフィルム", desc: "ショーウィンドウにデザインフィルムを施工。店舗の雰囲気が大きく変わりました。", img: "/images/work-shiogama-store.jpg" },
+  { area: "名取市・オフィス", type: "UVカット＋飛散防止", desc: "オフィス全窓にUVカット＋飛散防止フィルムを施工。スタッフのUV対策にもなっています。", img: "/images/work-natori-office.jpg" },
+  { area: "仙台市・マンション", type: "断熱フィルム", desc: "北向き寝室の窓に断熱フィルムを施工。冬の結露が大幅に減りました。", img: "/images/work-sendai-mansion.jpg" },
+  { area: "多賀城市・戸建て", type: "防犯フィルム", desc: "1階全窓に防犯フィルムを施工。防犯意識の高まりとともに安心感が増しました。", img: "/images/work-tagajo-house.jpg" },
 ];
 
 const testimonials = [
@@ -76,7 +76,7 @@ export default function WorksPage() {
               <div key={i} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <div className="relative h-52 bg-gray-200">
                   <Image
-                    src="/images/placeholder.jpg"
+                    src={w.img}
                     alt={`施工事例 ${w.area}`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
