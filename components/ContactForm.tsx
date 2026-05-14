@@ -23,12 +23,11 @@ export default function ContactForm() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    const res = await fetch("/api/contact", {
+    await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
-    if (!res.ok) return;
     setSubmitted(true);
     reset();
   };

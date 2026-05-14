@@ -1,0 +1,39 @@
+name: 毎日ブログ自動生成
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 毎日午前9時（JST）
+  workflow_dispatch:      # 手動実行も可能
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.jsをセットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: ブログ記事を生成
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: node scripts/generate-daily-post.mjs
+
+      - name: 記事をコミット＆プッシュ
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add posts/
+          git diff --staged --quiet || git commit -m "📝 ブログ記事を自動生成 $(date +'%Y-%m-%d')"
+          git push
+
+      - name: Vercelへデプロイ
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel --prod --token=$VERCEL_TOKEN --yes

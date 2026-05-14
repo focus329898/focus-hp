@@ -6,7 +6,7 @@ export async function POST(req: Request) {
   const { name, kana, email, phone, address, message } = await req.json();
 
   const { error } = await resend.emails.send({
-    from: "お問い合わせフォーム <noreply@llc-focus.com>",
+    from: "お問い合わせフォーム <onboarding@resend.dev>",
     to: "focusogata@gmail.com",
     replyTo: email,
     subject: `【仙台ガラスフィルム】お問い合わせ：${name} 様`,
