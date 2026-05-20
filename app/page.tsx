@@ -93,22 +93,44 @@ export default async function HomePage() {
     <>
       <HeroSection />
 
-<section className="py-12 bg-cream">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2
-            className="text-2xl font-bold text-navy mb-6 pb-3 border-b-2 border-gold"
-            style={{ fontFamily: "var(--font-noto-serif)" }}
-          >
-            お知らせ
-          </h2>
-          <ul className="space-y-4">
-            {news.map((item, i) => (
-              <li key={i} className="flex flex-col sm:flex-row gap-2 sm:gap-6 items-start">
-                <time className="text-gold font-medium text-sm shrink-0">{item.date}</time>
-                <span className="text-navy">{item.title}</span>
-              </li>
+<section className="py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <p className="text-gold font-medium mb-2">Blog</p>
+            <h2
+              className="text-3xl md:text-4xl font-bold text-navy"
+              style={{ fontFamily: "var(--font-noto-serif)" }}
+            >
+              ブログ
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {posts.map((post) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
+                <div className="bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                  <div className="p-5">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-xs bg-navy text-white px-2 py-1 rounded">
+                        {post.category}
+                      </span>
+                      <time className="text-xs text-gray-400">{post.date}</time>
+                    </div>
+                    <h3 className="font-bold text-navy group-hover:text-gold transition-colors leading-snug">
+                      {post.title}
+                    </h3>
+                  </div>
+                </div>
+              </Link>
             ))}
-          </ul>
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/blog"
+              className="inline-block border-2 border-navy text-navy font-bold px-8 py-3 rounded-full hover:bg-navy hover:text-white transition-colors"
+            >
+              ブログ一覧へ
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -254,44 +276,22 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-gold font-medium mb-2">Blog</p>
-            <h2
-              className="text-3xl md:text-4xl font-bold text-navy"
-              style={{ fontFamily: "var(--font-noto-serif)" }}
-            >
-              ブログ
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {posts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
-                <div className="bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                  <div className="p-5">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-xs bg-navy text-white px-2 py-1 rounded">
-                        {post.category}
-                      </span>
-                      <time className="text-xs text-gray-400">{post.date}</time>
-                    </div>
-                    <h3 className="font-bold text-navy group-hover:text-gold transition-colors leading-snug">
-                      {post.title}
-                    </h3>
-                  </div>
-                </div>
-              </Link>
+      <section className="py-12 bg-cream">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2
+            className="text-2xl font-bold text-navy mb-6 pb-3 border-b-2 border-gold"
+            style={{ fontFamily: "var(--font-noto-serif)" }}
+          >
+            お知らせ
+          </h2>
+          <ul className="space-y-4">
+            {news.map((item, i) => (
+              <li key={i} className="flex flex-col sm:flex-row gap-2 sm:gap-6 items-start">
+                <time className="text-gold font-medium text-sm shrink-0">{item.date}</time>
+                <span className="text-navy">{item.title}</span>
+              </li>
             ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/blog"
-              className="inline-block border-2 border-navy text-navy font-bold px-8 py-3 rounded-full hover:bg-navy hover:text-white transition-colors"
-            >
-              ブログ一覧へ
-            </Link>
-          </div>
+          </ul>
         </div>
       </section>
 
