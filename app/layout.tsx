@@ -90,6 +90,7 @@ export default function RootLayout({
               description: "宮城県全域対応の住宅・店舗ガラスフィルム施工専門店。UVカット・遮熱・プライバシー・防犯フィルムなど幅広いフィルム施工に対応。",
               openingHours: "Mo-Su 09:00-18:00",
               priceRange: "¥¥",
+              sameAs: ["https://www.instagram.com/sendai_glass/"],
             }),
           }}
         />
