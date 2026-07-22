@@ -33,6 +33,9 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# ローカル専用の秘密情報を扱うスクリプト(トークン等をハードコードしない運用だが念のため)
+scripts/set-github-secrets.mjs
+
 # vercel
 .vercel
 

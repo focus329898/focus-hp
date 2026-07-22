@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "仙台ガラスフィルム｜宮城県のガラスフィルム施工専門店",
   description:
     "宮城県全域対応のガラスフィルム施工専門店。UVカット・遮熱・プライバシー・防犯フィルムなど幅広いフィルム施工に対応。無料見積り受付中。",
+  alternates: { canonical: "/" },
 };
 
 const news = [

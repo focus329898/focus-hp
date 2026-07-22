@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "ブログ",
   description:
     "ガラスフィルムに関するお役立ち情報、施工事例、地域別施工ガイドなどを発信しています。",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {

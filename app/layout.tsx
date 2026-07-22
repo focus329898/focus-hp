@@ -75,6 +75,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "仙台ガラスフィルム",
               url: "https://llc-focus.com",
+              image: "https://llc-focus.com/images/hero.jpg",
               telephone: "022-355-7620",
               email: "focusogata@gmail.com",
               address: {

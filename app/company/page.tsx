@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "会社概要",
   description:
     "合同会社focusの会社概要です。宮城県多賀城市を拠点にガラスフィルム施工を行っています。",
+  alternates: { canonical: "/company" },
 };
 
 const companyInfo = [
@@ -26,7 +27,7 @@ const companyInfo = [
 export default function CompanyPage() {
   return (
     <>
-      <PageHeader title="会社概要" breadcrumbs={[{ label: "会社概要" }]} />
+      <PageHeader title="会社概要" breadcrumbs={[{ label: "会社概要" }]} path="/company" />
 
       <section className="py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4">

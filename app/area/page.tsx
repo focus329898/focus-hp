@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "対応エリア",
   description:
     "合同会社focusは宮城県全域のガラスフィルム施工に対応しています。仙台市・多賀城市・塩釜市・名取市などエリア外もご相談ください。",
+  alternates: { canonical: "/area" },
 };
 
 const areas = [
@@ -28,6 +29,7 @@ export default function AreaPage() {
       <PageHeader
         title="対応エリア"
         breadcrumbs={[{ label: "対応エリア" }]}
+        path="/area"
       />
 
       <section className="py-16 md:py-24">

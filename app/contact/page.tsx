@@ -6,12 +6,13 @@ export const metadata: Metadata = {
   title: "お問い合わせ",
   description:
     "ガラスフィルム施工のお見積り・ご相談はこちらから。現地調査・お見積りは無料です。",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
     <>
-      <PageHeader title="お問い合わせ" breadcrumbs={[{ label: "お問い合わせ" }]} />
+      <PageHeader title="お問い合わせ" breadcrumbs={[{ label: "お問い合わせ" }]} path="/contact" />
 
       <section className="py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4">

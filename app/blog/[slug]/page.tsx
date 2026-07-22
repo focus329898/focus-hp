@@ -19,6 +19,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: post.title,
       description: post.excerpt,
+      alternates: { canonical: `/blog/${slug}` },
+      openGraph: {
+        type: "article",
+        title: post.title,
+        description: post.excerpt,
+        url: `/blog/${slug}`,
+        publishedTime: post.date,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.title,
+        description: post.excerpt,
+      },
     };
   } catch {
     return { title: "記事が見つかりません" };
@@ -67,8 +80,40 @@ export default async function BlogPostPage({ params }: Props) {
   const readingTime = Math.ceil(post.content.replace(/<[^>]+>/g, "").length / 500);
   const h2Headings = post.headings.filter((h) => h.level === 2);
 
+  const baseUrl = "https://llc-focus.com";
+
   return (
     <div className="bg-cream min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: post.date,
+            dateModified: post.date,
+            author: { "@type": "Organization", name: "仙台ガラスフィルム" },
+            publisher: { "@type": "Organization", name: "仙台ガラスフィルム" },
+            mainEntityOfPage: `${baseUrl}/blog/${slug}`,
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "ホーム", item: baseUrl },
+              { "@type": "ListItem", position: 2, name: "ブログ", item: `${baseUrl}/blog` },
+              { "@type": "ListItem", position: 3, name: post.title, item: `${baseUrl}/blog/${slug}` },
+            ],
+          }),
+        }}
+      />
       {/* パンくず */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 py-3">

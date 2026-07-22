@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "ご依頼の流れ・料金",
   description:
     "ガラスフィルム施工のご依頼の流れと料金表をご紹介します。現地調査・見積もりは無料です。",
+  alternates: { canonical: "/flow" },
 };
 
 const priceTable = [
@@ -32,6 +33,7 @@ export default function FlowPage() {
       <PageHeader
         title="ご依頼の流れ・料金"
         breadcrumbs={[{ label: "ご依頼の流れ・料金" }]}
+        path="/flow"
       />
 
       <section className="py-16 md:py-24">

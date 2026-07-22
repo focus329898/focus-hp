@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "施工実績・お客様の声",
   description:
     "合同会社focusの施工実績とお客様の声をご紹介します。宮城県内の戸建て・マンション・店舗など幅広い施工事例があります。",
+  alternates: { canonical: "/works" },
 };
 
 const works = [
@@ -57,6 +58,7 @@ export default function WorksPage() {
       <PageHeader
         title="施工実績・お客様の声"
         breadcrumbs={[{ label: "施工実績・お客様の声" }]}
+        path="/works"
       />
 
       <section className="py-16 md:py-24">

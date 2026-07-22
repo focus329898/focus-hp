@@ -2,17 +2,36 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import FaqAccordion from "@/components/FaqAccordion";
+import { faqs } from "@/lib/faq-data";
 
 export const metadata: Metadata = {
   title: "よくある質問",
   description:
     "ガラスフィルム施工に関するよくある質問をまとめました。費用・施工時間・保証など気になる疑問にお答えします。",
+  alternates: { canonical: "/faq" },
 };
 
 export default function FaqPage() {
   return (
     <>
-      <PageHeader title="よくある質問" breadcrumbs={[{ label: "よくある質問" }]} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a,
+              },
+            })),
+          }),
+        }}
+      />
+      <PageHeader title="よくある質問" breadcrumbs={[{ label: "よくある質問" }]} path="/faq" />
 
       <section className="py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4">
