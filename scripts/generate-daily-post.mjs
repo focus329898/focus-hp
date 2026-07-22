@@ -110,9 +110,21 @@ excerpt: "記事の概要（80文字程度）"
   });
   const content = result.choices[0].message.content;
 
+  // frontmatterのみで本文が生成されなかった場合はファイルを書き込まない
+  const frontmatterMatch = content?.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
+  const body = frontmatterMatch?.[1]?.trim() ?? "";
+  if (body.length < 300 || !body.includes("##")) {
+    throw new Error(
+      `生成された記事の本文が不十分です（本文${body.length}文字）。API応答が途中で切れたか失敗した可能性があります。`
+    );
+  }
+
   const filePath = path.join(postsDir, `${slug}.md`);
   fs.writeFileSync(filePath, content, "utf8");
   console.log(`記事を保存しました: ${filePath}`);
 }
 
-main().catch(console.error);
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
