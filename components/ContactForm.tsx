@@ -9,6 +9,7 @@ type FormData = {
   email: string;
   phone: string;
   address: string;
+  budget: string;
   message: string;
 };
 
@@ -114,6 +115,23 @@ export default function ContactForm() {
           className="w-full border border-gray-200 rounded-xl px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent"
           placeholder="宮城県仙台市青葉区..."
         />
+      </div>
+
+      <div>
+        <label className="block font-bold text-navy mb-2">ご予算</label>
+        <select
+          {...register("budget")}
+          defaultValue=""
+          className="w-full border border-gray-200 rounded-xl px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-gold focus:border-transparent bg-white"
+        >
+          <option value="">選択してください</option>
+          <option value="5万円未満">5万円未満</option>
+          <option value="5万円〜10万円">5万円〜10万円</option>
+          <option value="10万円〜30万円">10万円〜30万円</option>
+          <option value="30万円〜50万円">30万円〜50万円</option>
+          <option value="50万円以上">50万円以上</option>
+          <option value="未定・相談したい">未定・相談したい</option>
+        </select>
       </div>
 
       <div>

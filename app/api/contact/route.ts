@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const { name, kana, email, phone, address, message } = await req.json();
+  const { name, kana, email, phone, address, budget, message } = await req.json();
 
   const { error } = await resend.emails.send({
     from: "お問い合わせフォーム <onboarding@resend.dev>",
@@ -15,6 +15,7 @@ export async function POST(req: Request) {
 メールアドレス：${email}
 電話番号：${phone || "未入力"}
 住所（施工場所）：${address || "未入力"}
+ご予算：${budget || "未入力"}
 
 お問い合わせ内容：
 ${message}`,
